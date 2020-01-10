@@ -1,0 +1,28 @@
+version: '2'
+services:
+  php:
+    image: yosmy/php
+    container_name: yosmy_moneris_gateway_php
+    volumes:
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ../../:/var/www/
+    networks:
+      - backend
+    environment:
+      PHP_IDE_CONFIG: "serverName=docker"
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: "idekey=PHPSTORM remote_host=172.18.0.1"
+    working_dir: /var/www
+  mongo:
+    image: yosmy/mongo
+    container_name: yosmy_moneris_gateway_mongo
+    volumes:
+      - ../var/db:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - backend
+
+networks:
+  backend:
+    external: true

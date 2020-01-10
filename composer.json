@@ -1,0 +1,48 @@
+{
+    "name": "yosmy/moneris-payment-gateway",
+    "description": "",
+    "require": {
+        "php": ">=7.2",
+        "ext-mongodb": "*",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "yosmy/mongo": "@dev",
+        "yosmy/http": "@dev",
+        "yosmy/log": "@dev",
+        "yosmy/payment-gateway": "@dev",
+        "symfony/serializer": "^5.0",
+        "symfony/property-access": "^5.0"
+    },
+    "require-dev": {
+        "symsonte/framework": "@dev",
+        "symfony/debug": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yosmy\\Payment\\Gateway\\Moneris\\": [
+                "src/card",
+                "src/charge",
+                "src/communication",
+                "src/customer",
+                "src/exception"
+            ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yosmy\\Payment\\Gateway\\Moneris\\Test\\": [
+                "test/setup",
+                "test/src/card",
+                "test/src/charge"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://php.yosmy.com"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
